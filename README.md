@@ -1,3 +1,28 @@
+## Solution included
+This repo contains the solution for the task decribed below.
+
+**Important notes**: 
+    
+- the block list page gets the lastest block number on open
+- so when navigating from the block details page to the block list page:
+    - pagination may be shifted due to new blocks
+    - the site accounts for that, and shows the page on which the last viewed block number currently is
+
+**Possible improvements**:
+
+- separate page, url, component for transaction details
+- highlight last viewed transaction on the block details page after navigating back from the transaction details page
+- search input on the account page
+- Connect with Ethereum
+- separate page for own account details?
+- UI design, CSS
+- ?
+
+---
+.
+
+---
+
 # Ethereum Block Explorer
 
 The lessons this week covered the Ethereum JSON-RPC API and the `ethers.js` library giving us the ability to query the Ethereum blockchain and make transactions!

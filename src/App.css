@@ -37,3 +37,67 @@
         transform: rotate(360deg);
     }
 }
+
+.container {
+    width: 50%;
+    display: block;
+    padding-left: 22%;
+}
+
+.row {
+    display: block;
+    padding: 2px;
+}
+
+.col {
+    display: inline-block;
+    padding: 1px;
+}
+
+.key {
+    font-size: smaller;
+    width: 20%;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: smaller;
+    width: 70%;
+    text-align: left;
+    padding-left: 5%;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.blk-row:hover {
+    background-color: #61dafb;
+}
+
+.block-header {
+    border: 2px solid black;
+}
+
+hr.txs {
+    width: 50%;
+}
+
+.tx-row {
+    display: block;
+}
+
+.open {
+    border: 1px solid gray;
+}
+
+.tx-header {
+    padding-top: 5px;
+}
+
+.tx-details {
+    padding: 2px;
+}
+
+.tx-details:hover {
+    background-color: #61dafb;
+}

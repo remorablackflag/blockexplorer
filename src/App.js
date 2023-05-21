@@ -1,7 +1,12 @@
-import { Alchemy, Network } from 'alchemy-sdk';
-import { useEffect, useState } from 'react';
+import { Alchemy, Network, Utils } from "alchemy-sdk";
+import { useState } from "react";
+import { Switch, Route } from "react-router-dom";
 
-import './App.css';
+import BlockList from "./BlockList.js";
+import BlockData from "./BlockData.js";
+import AccountData from "./AccountData.js";
+
+import "./App.css";
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
@@ -11,7 +16,6 @@ const settings = {
     network: Network.ETH_MAINNET,
 };
 
-
 // In this week's lessons we used ethers.js. Here we are using the
 // Alchemy SDK is an umbrella library with several different packages.
 //
@@ -20,17 +24,35 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 function App() {
-    const [blockNumber, setBlockNumber] = useState();
 
-    useEffect(() => {
-        async function getBlockNumber() {
-            setBlockNumber(await alchemy.core.getBlockNumber());
-        }
+    const [blockNumber, setBlockNumber] = useState(0);
+    const [page, setPage] = useState(0);
 
-        getBlockNumber();
-    });
-
-    return <div className="App">Block Number: {blockNumber}</div>;
+    return <div className="App">
+        <Switch>
+            <Route path="/block/:blockNumber">
+                <BlockData
+                    setBlockNumber={setBlockNumber}
+                    alchemy={alchemy}
+                />
+            </Route>
+            <Route path="/account/:account">
+                <AccountData
+                    blockNumber={blockNumber}
+                    alchemy={alchemy}
+                    utils={Utils}
+                />
+            </Route>
+            <Route path="*">
+                <BlockList
+                    blockNumber={blockNumber}
+                    page={page}
+                    setPage={setPage}
+                    alchemy={alchemy}
+                />
+            </Route>
+        </Switch>
+    </div>;
 }
 
 export default App;
